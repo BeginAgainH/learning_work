@@ -1,0 +1,3 @@
+﻿  源.cpp
+C:\Users\82765\Desktop\学习\引用\引用\源.cpp(32): warning C4715: “myclass::operator=”: 不是所有的控件路径都返回值
+  引用.vcxproj -> C:\Users\82765\Desktop\学习\引用\x64\Debug\类与对象.exe
