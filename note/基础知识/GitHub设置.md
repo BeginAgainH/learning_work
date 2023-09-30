@@ -239,3 +239,19 @@ git config --global --unset.https.proxy
 **删除文件后没有commit而直接push导致status中有delete红字错误**
 
 ​	解决方案：根据提示重新`git add 删除文件名`后再提交修改和上传到远程仓库
+
+
+
+**更新本地库并上传到远程仓库没有报错但远程仓库无改变**
+
+​		原因：可能是因为本地仓库存在多个分支而上传的分支并不是被更新的那个分支
+
+​		解决方案
+
+​			1、git branch查看本地分支情况
+
+​			2、git checkout切换到指定分支
+
+​			3、git merge合并分支
+
+​			4、重新add，commit，push
