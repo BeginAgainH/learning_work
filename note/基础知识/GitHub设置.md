@@ -1,5 +1,14 @@
 ## Git
 
+![](C:\Users\BeginAgain\Desktop\学习\note\pic\github\git-command_1.jpg)
+
+- workspace：工作区
+- staging area：暂存区/缓存区
+- local repository：版本库或本地仓库
+- remote repository：远程仓库
+
+
+
 **工作区和暂存区**
 
 ​	工作区：就是你在电脑上看到的目录，比如目录下testgit里的文件(.git隐藏目录版本库除外)。或者以后需要再新建的目录文件等等都属于工作区范畴
@@ -88,15 +97,75 @@
 
 ​		在本地仓库命令行输入：`git remote add origin` 远程仓库对应URL
 
+### 远程仓库操作
+
+**git remote**
+
+​		`git remote`	列出当前仓库中已配置的远程仓库。
+​		`git remote -v`	列出当前仓库中已配置的远程仓库，并显示它们的 URL。
+​		`git remote add <remote_name> <remote_url>`	添加一个新的远程仓库。指定一个远程仓库的名称和 URL，将其添加到当前仓		库中。
+​		`git remote rename <old_name> <new_name>`	将已配置的远程仓库重命名。
+​		`git remote remove <remote_name>`	从当前仓库中删除指定的远程仓库。
+​		`git remote set-url <remote_name> <new_url>`	修改指定远程仓库的 URL。
+​		`git remote show <remote_name>`	显示指定远程仓库的详细信息，包括 URL 和跟踪分支。
+
+**git fetch**
+
+​		`git fetch <远程主机名>`	将某个远程主机的更新全部取回本地
+
+​			`<远程主机名><分支名>`	只取回特定分支更新
+
+**git pull**
+
+​		`git pull <远程主机名> <远程分支名>:<本地分支名>`	从远程获取代码并合并本地版本
+
+
+
+
+
+**git push**
+
+​		`git push <远程主机名> <本地分支名>:<远程分支名>`	将本地的分支版本上传到远程并合并，若远程分支与本地相同则分支名可省略
+
+​			`push --force`	如果本地版本与远程版本有差异，但又要强制推送可以使用 --force 参数
+
+​			`origin --delete`	删除主机的分支可以使用 --delete 参数
+
+### 分支管理
+
+**git branch**
+
+​		`git branch`		列出本地分支
+
+​		`git branch <branchname>`	创建分支
+
+​		`git branch -d <branchname>`	删除本地分支
+
+​			`-d -r <branchname>`	删除远程仓库分支（非主分支）
+
+​		`git merge <branchname>`	将指定分支合并到当前分支
+
+**git checkout**
+
+​		`git checkout <branch-name>`	从当前分支切换到指定分支<branch-name>，若为master则是切换到主分支
+
+​				`checkout -`	则是切回前一个分支
+
+​		`git checkout -b <new-branch-name>`	创建新分支并切换
+
+​		`git checkout -- <file>`	将指定文件恢复到最新的提交状态，丢弃所有未提交的更改
+
+​		`git checkout <commit-hash>`	切换到特定提交，这将使你进入"分离头指针"状态，只能查看历史记录，而不能进行分支操作。		通常情况下，不建议在分离头指针状态下工作，因为更改可能会丢失
+
 ### 基本操作
 
-创建仓库命令
+**创建仓库命令**
 
 ​	`git init`	//在当前目录下使用该命令即可初始化创建一个新的本地仓库
 
 ​	`git clone [url]`	//克隆url对应远程git仓库到本地
 
-提交与修改
+**提交与修改**
 
 ​	**git diff**	
 
@@ -119,6 +188,10 @@
 ​		`git commit [file1]... -m "注释信息"`	提交暂存区的指定文件到仓库
 
 ​		`git commit -a`	设置修改文件后不需要执行`git add`命令，直接提交
+
+
+
+
 
 ### 一些问题
 
