@@ -1,6 +1,6 @@
 ## Git
 
-![](C:\Users\BeginAgain\Desktop\学习\note\pic\github\git-command_1.jpg)
+![](../pic/github/git-command_1.jpg)
 
 - workspace：工作区
 - staging area：暂存区/缓存区
