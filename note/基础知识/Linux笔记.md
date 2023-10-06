@@ -90,7 +90,7 @@ hello.c-预处理->hello.i-编译->hello.s-汇编->hello.o-链接->可执行文�
 	地址回填：回填链接好后main函数的地址，因为main函数包含的所有函数的位置都是相对于main函数的位置
 ```
 
-![image-20230922165257567](C:\Users\BeginAgain\AppData\Roaming\Typora\typora-user-images\image-20230922165257567.png)
+![image-20230922165257567](../pic/linux/gcc/gcc_tip.png)
 
 ### 参数
 
@@ -355,7 +355,7 @@ I/O操作:有关对流的读写操作
 
  **linux操作系统里	kill -l查看所有信号**
 
-![image-20230925223556262](C:\Users\BeginAgain\AppData\Roaming\Typora\typora-user-images\image-20230925223556262.png)
+![image-20230925223556262](../pic/linux/signal/SIG_LIST.png)
 
 ​	1~31为常规信号（普通信号）	34~64为实时信号
 
