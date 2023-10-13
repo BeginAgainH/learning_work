@@ -1,0 +1,4 @@
+﻿  work.cpp
+C:\Users\BeginAgain\Desktop\学习\code\cowcoder\huawei_test\nowcoder_huawei_HJ43\nowcoder_huawei_HJ43\work.cpp(41,42): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\BeginAgain\Desktop\学习\code\cowcoder\huawei_test\nowcoder_huawei_HJ43\nowcoder_huawei_HJ43\work.cpp(41,24): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  nowcoder_huawei_HJ43.vcxproj -> C:\Users\BeginAgain\Desktop\学习\code\cowcoder\huawei_test\nowcoder_huawei_HJ43\x64\Debug\nowcoder_huawei_HJ43.exe
