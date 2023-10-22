@@ -90,7 +90,7 @@ hello.c-预处理->hello.i-编译->hello.s-汇编->hello.o-链接->可执行文�
 	地址回填：回填链接好后main函数的地址，因为main函数包含的所有函数的位置都是相对于main函数的位置
 ```
 
-![image-20230922165257567](../pic/linux/gcc/gcc_tip.png)
+![image-20230922165257567](../../pic/linux/gcc/gcc_tip.png)
 
 ### 参数
 
@@ -325,7 +325,7 @@ I/O操作:有关对流的读写操作
 
 ## 信号
 
-![](../pic/linux/signal/SIG_WORK_STRUCTURE.png)
+![](../../pic/linux/signal/SIG_WORK_STRUCTURE.png)
 
 **信号共性**：简单、不能携带大量信息、条件满足才发送
 
@@ -381,7 +381,7 @@ I/O操作:有关对流的读写操作
 
  **linux操作系统里	kill -l查看所有信号**
 
-![image-20230925223556262](../pic/linux/signal/SIG_LIST.png)
+![image-20230925223556262](../../pic/linux/signal/SIG_LIST.png)
 
 ​	1~31为常规信号（普通信号）	34~64为实时信号
 
@@ -484,7 +484,7 @@ SIGCHLD：子进程结束，父进程会收到。如果子进程结束时父进�
 
 性质：信号注册实质上是一个位图和一个sigqueue队列
 
-![](../pic/linux/signal/SIG_SIGUP.png)
+![](../../pic/linux/signal/SIG_SIGUP.png)
 
 **非可靠信号的注册**
 
@@ -586,7 +586,7 @@ Linux内核的进程控制块PCB是一个结构体，task_struct，除了包含�
 
 ​	2、信号产生后由于某些原因（主要是阻塞）不能抵达。这类信号的集合称为未决信号集，在屏蔽解除前，信号一直处于未决状态
 
-![](../pic/linux/signal/SIG_SOLUTION.png)
+![](../../pic/linux/signal/SIG_SOLUTION.png)
 
 ​	**递达**：信号递送并且到达进程
 
@@ -777,6 +777,6 @@ signal()会依参数signum 指定的信号编号来设置该信号的处理函�
 
 **内核信号捕捉过程**
 
-![](../pic/linux/signal/KERNEL_CATCHSIG.png)
+![](../../pic/linux/signal/KERNEL_CATCHSIG.png)
 
 ## 进程组和会话
