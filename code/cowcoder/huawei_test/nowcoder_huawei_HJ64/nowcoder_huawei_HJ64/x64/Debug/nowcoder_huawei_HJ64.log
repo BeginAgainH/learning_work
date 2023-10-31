@@ -1,0 +1,8 @@
+﻿  work.cpp
+C:\Users\BeginAgain\Desktop\学习\code\cowcoder\huawei_test\nowcoder_huawei_HJ64\nowcoder_huawei_HJ64\work.cpp(33,40): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\BeginAgain\Desktop\学习\code\cowcoder\huawei_test\nowcoder_huawei_HJ64\nowcoder_huawei_HJ64\work.cpp(35,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\BeginAgain\Desktop\学习\code\cowcoder\huawei_test\nowcoder_huawei_HJ64\nowcoder_huawei_HJ64\work.cpp(105,36): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\BeginAgain\Desktop\学习\code\cowcoder\huawei_test\nowcoder_huawei_HJ64\nowcoder_huawei_HJ64\work.cpp(108,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\BeginAgain\Desktop\学习\code\cowcoder\huawei_test\nowcoder_huawei_HJ64\nowcoder_huawei_HJ64\work.cpp(120,44): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\BeginAgain\Desktop\学习\code\cowcoder\huawei_test\nowcoder_huawei_HJ64\nowcoder_huawei_HJ64\work.cpp(122,46): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  nowcoder_huawei_HJ64.vcxproj -> C:\Users\BeginAgain\Desktop\学习\code\cowcoder\huawei_test\nowcoder_huawei_HJ64\x64\Debug\nowcoder_huawei_HJ64.exe
