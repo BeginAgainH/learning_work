@@ -2,13 +2,66 @@
 
 ## 概念
 
-**什么是容器**	容器是用于存储其他对象并负责管理其所容纳对象内存的对象
+### STL六大组件及其作用
 
-**什么是容器库**	容器库是类模板与算法的汇集，允许程序员简单地访问常见数据结构
+**容器**	容器就是存放各种数据的数据结构，从实现的角度上看容器就是一种类模板
 
-**容器库的类别**	1、顺序容器库	2、关联容器库	3、无序关联容器库
+**算法**	STL算法就是STL库提供的如sort、search等的实现数据处理的函数，从实现的角度上看STL算法就是一种函数模板
 
-**容器库的职能**	容器管理为其元素分配的内存空间，并提供成员函数来直接访问或通过迭代器（具有类似于指针的属性的对象）访问
+**迭代器**	容器与算法间的胶合剂，是所谓的“泛型指针”，是一种将operator++等指针操作予以重载的类模板
+
+**仿函数**	行为类似函数，可作为算法的某种策略，从实现上看是重载了()的类或类模板
+
+**配接器**	用来修饰容器/算法/仿函数接口的
+
+**配置器**	负责空间配置与管理，从实现看配置器是实现了动态空间配置、管理、释放的类模板
+
+### 空间配置器Allocator
+
+**为什么是空间而不是内存**	空间不一定是内存，也可以是磁盘或其他辅助存储介质
+
+**功能**	对给定容器的内存进行管理，内存空间的申请和释放
+
+**allocator标准接口**
+
+```
+// 以下几种自定义类型是一种type_traits技巧，暂时不需要了解
+allocator::value_type
+allocator::pointer
+allocator::const_pointer
+allocator::reference
+allocator::const_reference
+allocator::size_type
+allocator::difference
+
+// 一个嵌套的(nested)class template，class rebind<U>拥有唯一成员other，那是一个typedef，代表allocator<U>
+allocator::rebind
+
+allocator::allocator() // 默认构造函数
+allocator::allocator(const allocator&) // 拷贝构造函数
+template <class U>allocator::allocator(const allocator<U>&) // 泛化的拷贝构造函数
+allocator::~allocator() // 析构函数
+
+// 返回某个对象的地址，a.address(x)等同于&x
+pointer allocator::address(reference x) const
+// 返回某个const对象的地址，a.address(x)等同于&x
+const_pointer allocator::address(const_reference x) const
+
+// 配置空间，足以存储n个T对象。第二个参数是个提示。实现上可能会利用它来增进区域性(locality)，或完全忽略之
+pointer allocator::allocate(size_type n, const void* = 0)
+// 释放先前配置的空间
+void allocator::deallocate(pointer p, size_type n)
+
+// 返回可成功配置的最大量
+size_type allocator:maxsize() const
+
+// 调用对象的构造函数，等同于 new((void*)p) T(x)
+void allocator::construct(pointer p, const T& x)
+// 调用对象的析构函数，等同于 p->~T()
+void allocator::destroy(pointer p)
+```
+
+上面的标准接口实际只需要关注最后的`allocate`，`deallocate`，`construct`和`destroy`函数的实现即可。整个allocator最重要的函数就是这四个。从功能上，这四者可以简单理解为C++的`::operator new`和`::operator delete`，构造函数和析构函数，实际上，一个最简单的`allocator`就可以理解为对`new`，`delete`的简单封装,以及对构造函数和析构函数的直接调用。
 
 ## 顺序容器库
 
@@ -1101,5 +1154,10 @@ struct uses_allocator<queue<T,Container>,Alloc> :
 
 ## 底层实现
 
-![](../../pic/cpp/STL/STL_structure_1.png)
+|   容器   | 特点                                                         |                       内存结构                       |
+| :------: | :----------------------------------------------------------- | :--------------------------------------------------: |
+|  vector  | 随机访问：O(1)                                                                                                                                                          随机插入与删除：O(n)，中间插入会引起后面数据的拷贝，尾部可快速增删；                                                  扩容：新建时初始化一片空间 插入元素引起扩容的时候，gcc会申请2倍的空间，拷贝原有数据，释放原来空间                                                                                                                                                                                 在进行迭代器相关的修改操作时（包括扩容），迭代器会失效，类似地址失效的感觉 |                         数组                         |
+|  deque   | 随机访问：两次解引用，O(1)                                                                                                                                   随机增删：O(n)，和vector一样，扩容时增加节点 双端队列 | 类似二维数组的缓冲区，缓冲区指后面实际存储数据的地方 |
+|   list   | 随机访问：O(n)，实际上就是不支持随机访问                                                                                                        随机增删：O(1) 扩容时新增单节点即可 |                       双向链表                       |
+| 关联容器 | 如set，map等                                                 |                        红黑树                        |
 
